@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TodoService } from './services/todo.service';
 import * as fromTodo from './store/todo.reducer';
 import { TodoEffects } from './store/todo.effects';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const todoRoutes:Routes=[{path:"",component:TodoComponent}];
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -33,6 +33,7 @@ export const metaReducers: MetaReducer<any>[] = [debug]
     CommonModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     EffectsModule.forFeature([TodoEffects]),
     StoreModule.forFeature(todoReducer.todoFeatureKey,todoReducer.reducer,{metaReducers}),

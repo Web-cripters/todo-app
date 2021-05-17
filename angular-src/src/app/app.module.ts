@@ -13,25 +13,27 @@ import { HomeComponent } from './home/home.component';
 import { MainNavComponent } from './navigation/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialModule } from './theme/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    MainNavComponent
-  ],
+  declarations: [AppComponent, HomeComponent, MainNavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
     BrowserAnimationsModule,
     LayoutModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
